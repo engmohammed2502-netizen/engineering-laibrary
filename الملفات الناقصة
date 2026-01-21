@@ -46,3 +46,19 @@ sudo systemctl status mongod
 
 # تثبيت PM2 عالمياً
 sudo npm install -g pm2
+
+
+
+
+# حذف أي مستودع سابق
+sudo rm /etc/apt/sources.list.d/mongodb*.list
+
+# إضافة مستودع MongoDB 6.0
+echo "deb [arch=amd64,arm64] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+
+# إضافة المفتاح
+wget -qO - https://pgp.mongodb.com/server-6.0.asc | sudo apt-key add -
+
+sudo apt update
+sudo apt install -y mongodb-org
+
