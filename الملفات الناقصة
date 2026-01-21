@@ -1,20 +1,12 @@
-# إنشاء مجلد مؤقت للملفات
-mkdir ~/mongo-install && cd ~/mongo-install
 
-# تحميل الحزم الأساسية (نسخة 8.0 المخصصة لـ Ubuntu 24.04 Noble)
-wget https://repo.mongodb.org/apt/ubuntu/dists/noble/mongodb-org/8.0/multiverse/binary-amd64/mongodb-org-server_8.0.0_amd64.deb
-wget https://repo.mongodb.org/apt/ubuntu/dists/noble/mongodb-org/8.0/multiverse/binary-amd64/mongodb-org-database-tools-extra_8.0.0_amd64.deb
-wget https://repo.mongodb.org/apt/ubuntu/dists/noble/mongodb-org/8.0/multiverse/binary-amd64/mongodb-org-mongos_8.0.0_amd64.deb
-wget https://repo.mongodb.org/apt/ubuntu/dists/noble/mongodb-org/8.0/multiverse/binary-amd64/mongodb-database-tools_100.10.0_amd64.deb
+sudo rm /etc/apt/sources.list.d/mongo*.list
 
-sudo dpkg -i *.deb
+echo "deb [arch=amd64 trusted=yes] http://mirrors.aliyun.com/mongodb/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-aliyun.list
 
-wget https://downloads.mongodb.com/compass/mongodb-mongosh_2.3.1_amd64.deb
-sudo dpkg -i mongodb-mongosh_2.3.1_amd64.deb
+sudo apt update
+sudo apt install -y mongodb-org
 
-sudo systemctl daemon-reload
-sudo systemctl start mongod
-sudo systemctl enable mongod
+
 
 
 
