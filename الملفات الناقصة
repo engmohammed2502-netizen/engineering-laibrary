@@ -1,0 +1,48 @@
+# 1. أضف مصدر Node.js
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+
+# 2. تثبيت Node.js
+sudo apt install -y nodejs npm
+
+# 3. تحقق من التثبيت
+node --version  # يجب يظهر: v20.x.x
+npm --version   # يجب يظهر: 10.x.x
+
+# أولاً، استيراد مفتاح GPG
+wget -qO - https://www.mongodb.org/static/pgp/server-7.0.asc | sudo apt-key add -
+
+# ثانياً، إضافة مستودع MongoDB (لـ Ubuntu 22.04)
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+# تحديث قائمة الحزم
+sudo apt update
+
+# تثبيت MongoDB
+sudo apt install -y mongodb-org
+
+
+
+
+
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+
+
+
+
+# تشغيل الخدمة
+sudo systemctl start mongod
+
+# تمكين التشغيل التلقائي عند الإقلاع
+sudo systemctl enable mongod
+
+# التحقق من حالة الخدمة
+sudo systemctl status mongod
+
+
+
+
+
+
+# تثبيت PM2 عالمياً
+sudo npm install -g pm2
