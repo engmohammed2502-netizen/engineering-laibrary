@@ -1,20 +1,4 @@
 
-sudo rm /etc/apt/sources.list.d/mongo*.list
-
-echo "deb [arch=amd64 trusted=yes] http://mirrors.aliyun.com/mongodb/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-aliyun.list
-
-sudo apt update
-sudo apt install -y mongodb-org
-
-
-
-
-
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
-
-
-
-
 
 # تشغيل الخدمة
 sudo systemctl start mongod
@@ -30,21 +14,6 @@ sudo systemctl status mongod
 
 
 
-# تثبيت PM2 عالمياً
-sudo npm install -g pm2
+npm config set registry https://registry.npmmirror.com
 
-
-
-
-# حذف أي مستودع سابق
-sudo rm /etc/apt/sources.list.d/mongodb*.list
-
-# إضافة مستودع MongoDB 6.0
-echo "deb [arch=amd64,arm64] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-
-# إضافة المفتاح
-wget -qO - https://pgp.mongodb.com/server-6.0.asc | sudo apt-key add -
-
-sudo apt update
-sudo apt install -y mongodb-org
-
+npm install -g pm2
