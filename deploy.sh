@@ -21,7 +21,7 @@ if [ -d "engineering-library" ]; then
     git pull origin main
 else
     echo "📂 استنساخ المشروع من GitHub..."
-    git clone [رابط-جيتهاب-الخاص-بك] engineering-library
+    git clone http://github.com/engmohammed2502-netizen/engineering-laibrary.git
     cd engineering-library
 fi
 
