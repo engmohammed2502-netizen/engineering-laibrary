@@ -1,43 +1,35 @@
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+// تخصيص التصميم الهندسي
+const engineeringTheme = createTheme({
   direction: 'rtl',
   palette: {
     primary: {
-      main: '#1a237e', // أزرق هندسي
-      light: '#534bae',
-      dark: '#000051',
+      main: '#4A90E2', // أزرق سماوي
+      light: '#7BB4F0',
+      dark: '#2C6BB7',
+      contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#ff5722', // برتقالي هندسي
-      light: '#ff8a50',
-      dark: '#c41c00',
-    },
-    error: {
-      main: '#f44336',
-    },
-    warning: {
-      main: '#ff9800',
-    },
-    info: {
-      main: '#2196f3',
-    },
-    success: {
-      main: '#4caf50',
+      main: '#00BCD4', // فيروزي
+      light: '#5DDFF3',
+      dark: '#008BA3',
+      contrastText: '#FFFFFF',
     },
     background: {
-      default: '#f5f5f5',
-      paper: '#ffffff',
+      default: '#F5F8FF',
+      paper: '#FFFFFF',
     },
     text: {
-      primary: '#212121',
-      secondary: '#757575',
+      primary: '#1A237E',
+      secondary: '#5C6BC0',
     },
   },
   typography: {
     fontFamily: [
-      'Tajawal',
-      'Segoe UI',
+      '"Noto Sans Arabic"',
+      '"Tajawal"',
+      '"Segoe UI"',
       'Roboto',
       'Arial',
       'sans-serif',
@@ -55,7 +47,7 @@ const theme = createTheme({
       fontSize: '1.75rem',
     },
     h4: {
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: '1.5rem',
     },
     h5: {
@@ -66,14 +58,6 @@ const theme = createTheme({
       fontWeight: 500,
       fontSize: '1rem',
     },
-    body1: {
-      fontSize: '1rem',
-      lineHeight: 1.6,
-    },
-    body2: {
-      fontSize: '0.875rem',
-      lineHeight: 1.6,
-    },
   },
   shape: {
     borderRadius: 8,
@@ -83,7 +67,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 8,
-          textTransform: 'none',
+          textTransform: 'none' as const,
           fontWeight: 500,
         },
       },
@@ -91,30 +75,12 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          borderRadius: 16,
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
         },
       },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiOutlinedInput-root': {
-            borderRadius: 8,
-          },
-        },
-      },
-    },
-  },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
     },
   },
 });
 
-export default theme;
+export default engineeringTheme;
