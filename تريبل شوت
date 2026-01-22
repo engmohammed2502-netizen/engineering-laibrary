@@ -64,3 +64,26 @@ curl -v http://localhost:9000/api/health
 
 # 5. إعادة التشغيل
 pm2 restart engineering-library-api
+
+
+
+
+
+
+# انتقل للمجلد الرئيسي
+cd /var/www/engineering-library
+
+# أنشئ قاعدة البيانات
+mongosh --eval "
+use engineering_library
+db.createCollection('users')
+db.users.insertOne({
+  universityId: 'zero',
+  name: 'System Root',
+  password: '\$2a\$12\$6VX8Q7bY5Z9Q9Q9Q9Q9Q9Q.9Q9Q9Q9Q9Q9Q9Q9Q9Q9Q9Q9Q9Q9Q9Q', // 975312468qq مشفرة
+  role: 'root',
+  isActive: true,
+  createdAt: new Date()
+})
+print('✅ قاعدة البيانات وحساب الروت جاهزان')
+"
